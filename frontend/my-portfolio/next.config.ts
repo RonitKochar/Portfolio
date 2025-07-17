@@ -5,8 +5,8 @@ const isProd = process.env.NODE_ENV === 'production'
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: { unoptimized: true },
-  assetPrefix: isProd ? '/<your-repo>/' : '',
-  basePath: isProd ? '/<your-repo>' : '',
+  assetPrefix: isProd ? '/Portfolio/' : '',
+  basePath: isProd ? '/Portfolio' : '',
   output: 'export',
 }
 
