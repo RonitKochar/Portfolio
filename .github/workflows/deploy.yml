@@ -35,7 +35,7 @@ jobs:
         run: npm install
 
       - name: Build Next.js and Export Static Site
-        run: npm run build && npm run export
+        run: npm run build
 
       - name: Prepare Deployment Files
         run: mv out ../../out
