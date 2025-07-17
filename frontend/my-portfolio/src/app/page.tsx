@@ -111,7 +111,7 @@ export default function Home() {
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-white mb-4">Passionate AI & Data Science Student</h3>
               <p className="text-gray-300 leading-relaxed">
-                I'm a final year Data Science student at Manipal Institute of Technology, currently working as an AI Intern at Tata Consultancy Services. 
+                I am a final year Data Science student at Manipal Institute of Technology, currently working as an AI Intern at Tata Consultancy Services. 
                 My passion lies in developing intelligent systems using LLMs, LangChain, and modern AI frameworks.
               </p>
               <p className="text-gray-300 leading-relaxed">
