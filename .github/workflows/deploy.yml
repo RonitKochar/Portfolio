@@ -35,13 +35,10 @@ jobs:
       - name: Build Next.js and Export Static Site
         run: npm run build
 
-      - name: List output folder
-        run: ls -la out
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: frontend/my-portfolio/out
 
   deploy:
     needs: build
