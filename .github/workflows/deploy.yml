@@ -37,8 +37,8 @@ jobs:
       - name: Build Next.js and Export Static Site
         run: npm run build
 
-      # - name: Prepare Deployment Files
-      #   run: mv out ../../out
+      - name: List output folder
+        run: ls -la out
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
