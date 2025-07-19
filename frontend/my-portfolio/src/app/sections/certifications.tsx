@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { getBasePath } from '../utils/basePath';
 
 export default function CertificationsSection() {
   const [showPDF, setShowPDF] = useState(false);
@@ -22,7 +23,7 @@ export default function CertificationsSection() {
   ];
 
   const handlePdfOpen = (pdf: string) => {
-    setPdfSrc(`/pdfs/${pdf}`);
+    setPdfSrc(`${getBasePath()}/pdfs/${pdf}`);
     setShowPDF(true);
   };
 

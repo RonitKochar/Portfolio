@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { getBasePath } from '../utils/basePath'; 
 
 export default function ExperienceSection() {
   const [showPDF, setShowPDF] = useState(false);
@@ -64,7 +65,7 @@ export default function ExperienceSection() {
                     &times;
                     </button>
                     <iframe
-                    src="/pdfs/A Journey through Generative AI, LangChain, and Agent Development.pdf"
+                    src={`${getBasePath()}/pdfs/A Journey through Generative AI, LangChain, and Agent Development.pdf`}
                     className="w-full h-full"
                     title="AI Internship Report"
                     frameBorder="0"

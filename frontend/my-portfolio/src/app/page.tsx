@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import ExperienceSection from './sections/experience'
 import CertificationsSection from './sections/certifications';
+import { getBasePath } from './utils/basePath';
 
 export default function Home() {
   const [showResume, setShowResume] = useState(false);
@@ -552,7 +553,7 @@ export default function Home() {
 
             {/* Resume PDF Iframe */}
             <iframe
-              src="/pdfs/Resume_RonitKochar.pdf"  
+              src={`${getBasePath()}/pdfs/Resume_RonitKochar.pdf`}  
               title="Ronit Kochar Resume"
               className="w-full h-full"
               frameBorder="0"
