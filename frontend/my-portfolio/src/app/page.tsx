@@ -28,14 +28,28 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'experience', 'education', 'projects', 'skills', 'certifications', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = [
+        'home',
+        'about',
+        'experience',
+        'education',
+        'projects',
+        'skills',
+        'certifications',
+        'extracurricular',
+        'contact',
+      ];
+
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
             break;
           }
@@ -72,6 +86,7 @@ export default function Home() {
                 'projects',
                 'skills',
                 'certifications',
+                'extracurricular',
                 'contact',
               ].map((section) => (
                 <button
@@ -379,8 +394,47 @@ export default function Home() {
       {/* Certifications Section */}
       <CertificationsSection />
 
+      {/* Extracurricular Section */}
+      <section id="extracurricular" className="py-20 px-4 bg-black/20 min-h-screen">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+            Extracurriculars
+          </h2>
+          <div className="space-y-12">
+            {/* Blitzkreig Dance Crew Card */}
+            <div className="group bg-gradient-to-r from-blue-400/10 to-green-400/10 p-8 rounded-2xl border border-white/10 transition-all duration-300 cursor-pointer hover:scale-105">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-2xl font-semibold text-white">Vice President</h3>
+                <span className="text-green-400 font-medium">2023 - 2025</span>
+              </div>
+              <div className="text-blue-400 font-medium mb-4">MIT Blitzkreig Dance Crew</div>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  Contributed to leadership, creativity, discipline, hard-work, teamwork and many wins for the club.
+                </li>
+              </ul>
+              {/* Hidden Achievements - expand on hover */}
+              <div className="mt-4 max-h-0 overflow-hidden group-hover:max-h-[500px] transition-all duration-500 ease-in-out">
+                <div className="pt-4 border-t border-white/10">
+                  <p className="text-lg font-semibold text-white mb-2">Achievements:</p>
+                  <ul className="list-disc list-inside text-gray-300 space-y-1">
+                    <li>IIMB Unmaad 2023 → 2nd Place</li>
+                    <li>BITS GOA Waves 2023 → 1st & 2nd Place</li>
+                    <li>MIT Revels 2023 → 1st Place</li>
+                    <li>BITS GOA Waves 2024 → 1st & 2nd Place</li>
+                    <li>MAHE Utsav 2024 → 1st Place</li>
+                    <li>MIT Revels 2025 → 2nd Place</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 bg-black/20">
+      <section id="contact" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Get In Touch
@@ -444,7 +498,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 border-t border-white/10">
+      <footer className="py-20 px-4 bg-black/20">
         <div className="max-w-7xl mx-auto text-center">
           <div className="text-gray-400 mb-4">
             <p>© 2024 Ronit Kochar. All rights reserved.</p>
