@@ -1,13 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import ExperienceSection from './sections/experience'
+import CertificationsSection from './sections/certifications';
 
 export default function Home() {
+  const [showResume, setShowResume] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [typedText, setTypedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
 
-  const fullText = "Final year student at MIT, Manipal, passionate about LLMs, LangChain, and AI. Currently working as an AI Intern at TCS, developing intelligent agents and building scalable AI solutions.";
+  const fullText = "Final year Data Science student at Manipal Institute of Technology, passionate about cutting-edge AI technologies including Large Language Models and LangChain. Experienced in designing intelligent agents and building scalable AI-powered solutions. Dedicated to advancing AI innovation with practical skills in prompt engineering, machine learning, and full-stack development. Explore my journey through impactful projects, certifications, and technical expertise.";
 
   useEffect(() => {
     let index = 0;
@@ -61,7 +64,16 @@ export default function Home() {
               Ronit Kochar
             </div>
             <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'experience', 'education', 'projects', 'skills', 'certifications', 'contact'].map((section) => (
+              {[
+                'home',
+                'about',
+                'experience',
+                'education',
+                'projects',
+                'skills',
+                'certifications',
+                'contact',
+              ].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -72,6 +84,14 @@ export default function Home() {
                   {section}
                 </button>
               ))}
+
+              {/* Resume Button */}
+              <button
+                onClick={() => setShowResume(true)}
+                className="capitalize transition-all duration-300 hover:text-blue-400 text-gray-300"
+              >
+                Resume
+              </button>
             </div>
           </div>
         </div>
@@ -84,7 +104,7 @@ export default function Home() {
             Ronit Kochar
           </h1>
           <div className="text-xl md:text-2xl text-gray-300 mb-8">
-            <span className="text-blue-400">AI Intern at TCS</span> | <span className="text-purple-400">Data Science Student</span>
+            <span className="text-purple-400">Data Science Student</span>
           </div>
           <div className="text-lg md:text-xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
             {typedText}
@@ -111,12 +131,10 @@ export default function Home() {
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-white mb-4">Passionate AI & Data Science Student</h3>
               <p className="text-gray-300 leading-relaxed">
-                I am a final year Data Science student at Manipal Institute of Technology, currently working as an AI Intern at Tata Consultancy Services. 
-                My passion lies in developing intelligent systems using LLMs, LangChain, and modern AI frameworks.
+                Final year Data Science student at Manipal Institute of Technology, deeply passionate about artificial intelligence, language models, and intelligent agents. I have hands-on experience designing and deploying scalable AI solutions, with a focus on workflow automation, prompt engineering, and leveraging modern frameworks like LangChain.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                I specialize in building scalable AI solutions, developing intelligent agents, and creating full-stack applications. 
-                My experience spans from deep learning and machine learning to modern web development and AI integration.
+                My expertise bridges deep learning, machine learning, and end-to-end application development, combining technical depth with a strong drive to apply AI for impactful real-world solutions. I am committed to continuous learning and innovation in the rapidly evolving field of artificial intelligence.
               </p>
               <div className="flex space-x-4">
                 <a href="https://github.com/RonitKochar" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
@@ -132,7 +150,7 @@ export default function Home() {
               <div className="space-y-3 text-gray-300">
                 <div className="flex justify-between">
                   <span>Location:</span>
-                  <span>Pune, India</span>
+                  <span>Manipal, India</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Education:</span>
@@ -153,43 +171,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Experience
-          </h2>
-          <div className="space-y-12">
-            <div className="bg-gradient-to-r from-blue-600/10 to-purple-600/10 p-8 rounded-2xl border border-white/10 hover:transform hover:scale-105 transition-all duration-300">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-semibold text-white">AI Intern</h3>
-                <span className="text-blue-400 font-medium">May 2025 - Ongoing</span>
-              </div>
-              <div className="text-purple-400 font-medium mb-4">Tata Consultancy Services, Pune</div>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">•</span>
-                  Gained hands-on experience with Generative AI, LangChain, and various LLMs through practical projects, designing and deploying intelligent agents for data generation, modification, and analysis.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">•</span>
-                  Developed and integrated advanced tools like Pinecone, React agents, and vector stores, building robust backend and frontend applications for real-time automation.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">•</span>
-                  Cultivated expertise in prompt engineering, model evaluation, and modern AI frameworks, fostering creative problem-solving and scalable agent systems.
-                </li>
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {['LangChain', 'LLM', 'Azure Databricks', 'Chatbot Development', 'LangGraph', 'Data Pipelines'].map((skill) => (
-                  <span key={skill} className="bg-blue-600/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ExperienceSection />
 
       {/* Education Section */}
       <section id="education" className="py-20 px-4 bg-black/20">
@@ -292,11 +274,23 @@ export default function Home() {
             <div className="bg-gradient-to-r from-blue-600/10 to-purple-600/10 p-6 rounded-2xl border border-white/10">
               <h3 className="text-xl font-semibold text-white mb-4">Languages</h3>
               <div className="space-y-3">
-                {['C++', 'C', 'HTML', 'CSS', 'LaTeX', 'Python', 'Java', 'Next.js'].map((skill) => (
-                  <div key={skill} className="flex justify-between items-center">
-                    <span className="text-gray-300">{skill}</span>
+                {[
+                  { name: 'C++', level: '70%' },
+                  { name: 'C', level: '70%' },
+                  { name: 'HTML', level: '65%' },
+                  { name: 'CSS', level: '65%' },
+                  { name: 'Javascript', level: '45%'},
+                  { name: 'Python', level: '95%' },
+                  { name: 'SQL', level: '70%'},
+                  { name: 'Java', level: '95%' },
+                ].map(({ name, level }) => (
+                  <div key={name} className="flex justify-between items-center">
+                    <span className="text-gray-300">{name}</span>
                     <div className="w-24 bg-gray-700 rounded-full h-2">
-                      <div className="bg-blue-400 h-2 rounded-full" style={{ width: '90%' }}></div>
+                      <div
+                        className="bg-blue-400 h-2 rounded-full"
+                        style={{ width: level }}
+                      ></div>
                     </div>
                   </div>
                 ))}
@@ -306,11 +300,25 @@ export default function Home() {
             <div className="bg-gradient-to-r from-purple-600/10 to-pink-600/10 p-6 rounded-2xl border border-white/10">
               <h3 className="text-xl font-semibold text-white mb-4">Frameworks/Libraries</h3>
               <div className="space-y-3">
-                {['Tensorflow', 'Scikit-Learn', 'NumPy', 'Pandas', 'Streamlit', 'LangChain', 'Fast API'].map((skill) => (
-                  <div key={skill} className="flex justify-between items-center">
-                    <span className="text-gray-300">{skill}</span>
+                {[
+                  { name: 'Tensorflow', level: '80%' },
+                  { name: 'Scikit-Learn', level: '80%' },
+                  { name: 'NumPy', level: '95%' },
+                  { name: 'Pandas', level: '95%' },
+                  { name: 'Streamlit', level: '65%' },
+                  { name: 'LangChain', level: '98%' },
+                  { name: 'LangGraph', level: '80%' },
+                  { name: 'python-dotenv', level: '85%' },
+                  { name: 'Fast API', level: '65%' },
+                  { name: 'Next.js', level: '65%' }, 
+                ].map(({ name, level }) => (
+                  <div key={name} className="flex justify-between items-center">
+                    <span className="text-gray-300">{name}</span>
                     <div className="w-24 bg-gray-700 rounded-full h-2">
-                      <div className="bg-purple-400 h-2 rounded-full" style={{ width: '85%' }}></div>
+                      <div
+                        className="bg-purple-400 h-2 rounded-full"
+                        style={{ width: level }}
+                      ></div>
                     </div>
                   </div>
                 ))}
@@ -320,11 +328,23 @@ export default function Home() {
             <div className="bg-gradient-to-r from-green-600/10 to-blue-600/10 p-6 rounded-2xl border border-white/10">
               <h3 className="text-xl font-semibold text-white mb-4">Developer Tools</h3>
               <div className="space-y-3">
-                {['Git', 'Github', 'VSCode', 'pip', 'Cursor AI', 'Pinecone', 'OpenRouter AI', 'npm'].map((skill) => (
-                  <div key={skill} className="flex justify-between items-center">
-                    <span className="text-gray-300">{skill}</span>
+                {[
+                  { name: 'Git', level: '90%' },
+                  { name: 'Github', level: '94%' },
+                  { name: 'VSCode', level: '100%' },
+                  { name: 'Cursor AI', level: '96%' },
+                  { name: 'Mermaid Live', level: '85%' },
+                  { name: 'Pinecone', level: '75%' },
+                  { name: 'OpenRouter AI', level: '95%' },
+                  { name: 'npm', level: '60%' },
+                ].map(({ name, level }) => (
+                  <div key={name} className="flex justify-between items-center">
+                    <span className="text-gray-300">{name}</span>
                     <div className="w-24 bg-gray-700 rounded-full h-2">
-                      <div className="bg-green-400 h-2 rounded-full" style={{ width: '88%' }}></div>
+                      <div
+                        className="bg-green-400 h-2 rounded-full"
+                        style={{ width: level }}
+                      ></div>
                     </div>
                   </div>
                 ))}
@@ -334,11 +354,19 @@ export default function Home() {
             <div className="bg-gradient-to-r from-yellow-600/10 to-orange-600/10 p-6 rounded-2xl border border-white/10">
               <h3 className="text-xl font-semibold text-white mb-4">Technical Skills</h3>
               <div className="space-y-3">
-                {['Full Stack Development', 'Machine Learning', 'Deep Learning', 'LLM'].map((skill) => (
-                  <div key={skill} className="flex justify-between items-center">
-                    <span className="text-gray-300">{skill}</span>
+                {[
+                  { name: 'Full Stack Development', level: '75%' },
+                  { name: 'Machine Learning', level: '85%' },
+                  { name: 'Deep Learning', level: '75%' },
+                  { name: 'LLM', level: '90%' },
+                ].map(({ name, level }) => (
+                  <div key={name} className="flex justify-between items-center">
+                    <span className="text-gray-300">{name}</span>
                     <div className="w-24 bg-gray-700 rounded-full h-2">
-                      <div className="bg-yellow-400 h-2 rounded-full" style={{ width: '92%' }}></div>
+                      <div
+                        className="bg-yellow-400 h-2 rounded-full"
+                        style={{ width: level }}
+                      ></div>
                     </div>
                   </div>
                 ))}
@@ -349,34 +377,7 @@ export default function Home() {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Certifications
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              'Core Java Concepts Foundation',
-              'Big Data Integration and Processing',
-              'Big Data Modelling and Management Systems',
-              'Tableau Certified',
-              'Introduction to Big Data',
-              'Natural Language Processing in Tensorflow',
-              'Certified Data Scientist',
-              'Python Project for Data Science',
-              'Tools for Data Science',
-              'Python for Data Science and AI',
-              'HTML, CSS and Javascript for Web Developers',
-              'Core Java Made Easy',
-              'LangChain - Develop LLM powered applications with LangChain'
-            ].map((cert, index) => (
-              <div key={index} className="bg-gradient-to-r from-blue-600/10 to-purple-600/10 p-6 rounded-2xl border border-white/10 hover:transform hover:scale-105 transition-all duration-300">
-                <h3 className="text-lg font-semibold text-white">{cert}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CertificationsSection />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-black/20">
@@ -385,45 +386,59 @@ export default function Home() {
             Get In Touch
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-gradient-to-r from-blue-600/10 to-purple-600/10 p-6 rounded-2xl border border-white/10 hover:transform hover:scale-105 transition-all duration-300">
+
+            {/* Email */}
+            <a
+              href="mailto:ronitkochar2001@gmail.com"
+              className="block bg-gradient-to-r from-blue-600/10 to-purple-600/10 p-6 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300"
+            >
               <div className="text-center">
                 <div className="text-3xl mb-4">📧</div>
                 <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-                <a href="mailto:ronitkochar2001@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors">
-                  ronitkochar2001@gmail.com
-                </a>
+                <p className="text-blue-400">ronitkochar2001@gmail.com</p>
               </div>
-            </div>
+            </a>
 
-            <div className="bg-gradient-to-r from-purple-600/10 to-pink-600/10 p-6 rounded-2xl border border-white/10 hover:transform hover:scale-105 transition-all duration-300">
+            {/* Phone */}
+            <a
+              href="tel:+918299313154"
+              className="block bg-gradient-to-r from-purple-600/10 to-pink-600/10 p-6 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300"
+            >
               <div className="text-center">
                 <div className="text-3xl mb-4">📱</div>
                 <h3 className="text-xl font-semibold text-white mb-2">Phone</h3>
-                <a href="tel:+918299313154" className="text-purple-400 hover:text-purple-300 transition-colors">
-                  +91 8299313154
-                </a>
+                <p className="text-purple-400">+91 8299313154</p>
               </div>
-            </div>
+            </a>
 
-            <div className="bg-gradient-to-r from-green-600/10 to-blue-600/10 p-6 rounded-2xl border border-white/10 hover:transform hover:scale-105 transition-all duration-300">
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/ronit-kochar-0a70841b7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-gradient-to-r from-green-600/10 to-blue-600/10 p-6 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300"
+            >
               <div className="text-center">
                 <div className="text-3xl mb-4">💼</div>
                 <h3 className="text-xl font-semibold text-white mb-2">LinkedIn</h3>
-                <a href="https://www.linkedin.com/in/ronit-kochar-0a70841b7/" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 transition-colors">
-                  Connect with me
-                </a>
+                <p className="text-green-400">Connect with me</p>
               </div>
-            </div>
+            </a>
 
-            <div className="bg-gradient-to-r from-yellow-600/10 to-orange-600/10 p-6 rounded-2xl border border-white/10 hover:transform hover:scale-105 transition-all duration-300">
+            {/* GitHub */}
+            <a
+              href="https://github.com/RonitKochar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-gradient-to-r from-yellow-600/10 to-orange-600/10 p-6 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300"
+            >
               <div className="text-center">
                 <div className="text-3xl mb-4">🐙</div>
                 <h3 className="text-xl font-semibold text-white mb-2">GitHub</h3>
-                <a href="https://github.com/RonitKochar" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 transition-colors">
-                  View my work
-                </a>
+                <p className="text-yellow-400">View my work</p>
               </div>
-            </div>
+            </a>
+
           </div>
         </div>
       </section>
@@ -435,18 +450,63 @@ export default function Home() {
             <p>© 2024 Ronit Kochar. All rights reserved.</p>
           </div>
           <div className="flex justify-center space-x-6">
-            <a href="https://github.com/RonitKochar" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <a
+              href="https://github.com/RonitKochar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               GitHub
             </a>
-            <a href="https://www.linkedin.com/in/ronit-kochar-0a70841b7/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <a
+              href="https://www.linkedin.com/in/ronit-kochar-0a70841b7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               LinkedIn
             </a>
-            <a href="https://leetcode.com/u/RonitKochar/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <a
+              href="https://leetcode.com/u/RonitKochar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               LeetCode
             </a>
+            {/* Resume link triggers modal */}
+            <button
+              onClick={() => setShowResume(true)}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              Resume
+            </button>
           </div>
         </div>
       </footer>
+
+      {showResume && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+          <div className="relative bg-white w-full max-w-4xl h-[80vh] rounded-lg overflow-hidden">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowResume(false)}
+              className="absolute top-2 right-4 text-2xl font-bold text-gray-700 hover:text-gray-900 z-10"
+            >
+              &times;
+            </button>
+
+            {/* Resume PDF Iframe */}
+            <iframe
+              src="/pdfs/Resume_RonitKochar.pdf"  
+              title="Ronit Kochar Resume"
+              className="w-full h-full"
+              frameBorder="0"
+              style={{ border: 'none' }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
