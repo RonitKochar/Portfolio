@@ -35,9 +35,10 @@ jobs:
       - name: Build Next.js and Export Static Site
         run: npm run build
 
-      - name: Upload artifact
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          name: github-pages 
           path: frontend/my-portfolio/out
 
   deploy:
